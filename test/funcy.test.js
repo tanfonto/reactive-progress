@@ -1,0 +1,22 @@
+const tester = require('./tester')
+const { spec, atLeast, andN } = require('./../src/funcy')
+
+tester.falsy(spec, '"spec" returns false when both "flatten" and "flatMap" are not functions', { flatten: 1, flatMap: 1 })
+tester.falsy(spec, '"spec" returns false when "flatten" is not a functions', { flatten: 1, flatMap: () => {} })
+tester.falsy(spec, '"spec" returns false when "flatMap" is not a function', { flatten: () => {}, flatMap: 1 })
+tester.falsy(spec, '"spec" returns false when "flatten" is missing', { flatMap: () => 1 })
+tester.falsy(spec, '"spec" returns false when "flatMap" is missing', { flatten: () => 1 })
+tester.truthy(spec, '"spec" returns true when "flatMap" and "flatten" are both functions', { flatten: () => {}, flatMap: () => {} })
+
+tester.falsy(atLeast, '"atLeast" returns false if called with positive integer only', 1)
+tester.falsy(atLeast, '"atLeast" returns true if array length is lower than integer provided', 2, [42])
+tester.truthy(atLeast, '"atLeast" returns true if called with no arguments')
+tester.truthy(atLeast, '"atLeast" returns false if called with negative integer only', -1)
+tester.truthy(atLeast, '"atLeast" returns false if called with negative integer only', -1)
+tester.truthy(atLeast, '"atLeast" returns true if array length is equal to integer provided', 1, [42])
+tester.truthy(atLeast, '"atLeast" returns true if array length is greater than integer provided', 1, [42, 42])
+
+tester.falsy(andN, '"andN" returns false if one, falsy predicate is provided', false)
+tester.falsy(andN, '"andN" returns false if multiple predicates are provided, some of them being falsy', true, false, true)
+tester.truthy(andN, '"andN" returns true if no predicates are provided')
+tester.truthy(andN, '"andN" returns true if multiple truthy predicates are provided', true, true, true)

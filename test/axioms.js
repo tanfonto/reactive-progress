@@ -3,7 +3,7 @@ const { partialRight } = require('ramda')
 function monad(unit, x, f, g, eq) {
     const m = () => unit(x)
     const trace = partialRight(equal, [eq])
-
+    
     trace(unit(x).chain(f), f(x), "left identity satisfied")
     trace(unit(x).chain(f).chain(g), g(f(x).flatten()), "left identity satisfied (double)")
     trace(m().chain(unit), m(), "right identity satisfied")

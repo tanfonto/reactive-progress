@@ -1,18 +1,22 @@
-const { F, empty, ifElse, defaultTo, complement, memoize, and, all, not, when, always, isNil, reject, takeLast, identity, reverse, head } = require('ramda')
+const { F, ifElse, defaultTo, complement, memoize, and, all, not, when, always, isNil, reject, takeLast, identity, reverse, head } = require('ramda')
 const { isFunction, isNotEmpty } = require('ramda-adjunct')
-const { atLeast } = require('./funcy')
+const { atLeast, spec } = require('./funcy')
 const None = require('./None').None.produce
 
 function Progress(opts, ...state) {
-
+    
     const { valueSafe = F, compare = always(None()), differs = always(false) } = opts
 
+    function ensureLift(f) {
+        return ifElse(spec, identity, val => Progress(opts, previous(), val))(f(previous()))
+    }   
+    
     function map(f)  {
         return Progress(opts, previous(), f(previous())) 
     }
     
     function chain (f) {
-        return isFunction(f) ? f(previous()) : Progress(opts, ...state)
+        return isFunction(f) ? ensureLift(f) : Progress(opts, ...state)
     }  
     
     function join() {
@@ -26,7 +30,7 @@ function Progress(opts, ...state) {
     }
     
     function values() {
-        return memoize(ifElse(isNotEmpty, reject(isNil), empty([])))(state)
+        return memoize(ifElse(isNotEmpty, reject(isNil), always([])))(state)
     }
 
     function log() {

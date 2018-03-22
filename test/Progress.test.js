@@ -7,7 +7,7 @@ const { of } = require('./../src/main')
 const { spec } = require('./../src/funcy')
 const { None } = require('./../src/None')
 
-test('"Progress" satisfies functor axioms (values unsafe according to the difference method configured)', t => {
+test('"Progress" satisfies functor axioms', t => {
     const functor = of
     
     axioms.functor(functor, 42, x => x + 2, x => x, t.deepEqual)
@@ -57,7 +57,7 @@ tester(of, '"unit (of)" creates monadic object', spec)
 
 tester(of(3, 'a', {}).log, '"log" returns whatever lift is provided with, wrapped in an array', [3, 'a', {}])
 
-tester(of(3, 'a').chain(prev => of(prev, 42, {})) .log, 
+tester(of(3, 'a').chain(prev => of(prev, 42, {})).log, 
     '"log" called on chained monad returns the last argument of the monad on which chain is called and all the arguments passed to chained lift', 
     ['a', 42, {}])
 
@@ -74,5 +74,6 @@ tester(of(['42'], [42]).flatten,
 tester(of([42], [42]).flatten, 
     '"flatten" returns None if all the values provided are equivalent according to difference strategy configured', None.spec)
 
-tester(of(10).chain('42').log, 
-    '"chain" falls back to current value if map provided is neither a monad nor a function', [10])
+tester(of(10).chain('42').log, '"chain" falls back to current value if map provided is neither a monad nor a function', [10])
+
+tester(of([42]).chain(() => undefined).chain(() => [1]).chain(() => [2]).join, 'nil values are ignored', [2])

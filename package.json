@@ -3,24 +3,42 @@
   "version": "0.0.1",
   "description": "Progress tracking monad",
   "keywords": [
-    "functional programming",
     "progress tracking",
-    "monad",
     "http polling",
     "http notifications",
+    "functional programming",
+    "monad",
     "websockets"
   ],
-  "source": "src/main.js",
-  "main": "dist/module.js",
-  "author": "Whapky",
+  "main": "dist/mprogress.umd.js",
+  "author": "Whapky whapky@tuta.io",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/whapky/monadic-progress"
+  },
+  "unpkg": "./dist/mprogress.umd.js",
+  "directories": {
+    "test": "test",
+    "lib": "src",
+    "doc": "demo"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "eslint && rollup -c",
+    "test": "nyc --reporter=text --reporter=html tape test/*.test.js",
+    "prepublish": "npm install && npx run build"
+  },
+  "source": "src/main.js",
   "dependencies": {
     "glob": "^7.1.2",
     "ramda": "^0.25.0",
-    "ramda-adjunct": "^2.6.0"
+    "ramda-adjunct": "^2.6.0",
+    "dargs": "^5.1.0",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
-    "dargs": "^5.1.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
@@ -35,7 +53,6 @@
     "tap-bail": "^1.0.0",
     "tap-pessimist": "^1.0.1",
     "tap-summary": "^4.0.0",
-    "tape": "^4.9.0",
-    "yargs": "^11.0.0"
+    "tape": "^4.9.0"
   }
 }

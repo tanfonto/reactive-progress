@@ -4,14 +4,14 @@ import babel from 'rollup-plugin-babel'
 import { into, map } from 'ramda'
 
 const MODULE_NAME = 'MProgress'
-const formats = [ 'cjs', 'umd' ]
+const formats = [ 'cjs', 'umd', 'es' ]
 
 const produceConfig = format => {
   return {
     input: 'src/main.js',
     output: {
       format: [ format ],
-      file: `dist/module.${format}.js`,
+      file: `dist/mprogress.${format}.js`,
     name: MODULE_NAME
   },
   plugins: [

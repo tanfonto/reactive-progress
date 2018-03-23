@@ -30,7 +30,7 @@ Default configuration expects ```chain``` (aka bind) and ```map``` input to be w
       .chain(() => Progress.of(["different state"]))
       .chain(() => [5]))
 
-    console.log(progress.flatten()) //prints ['5']
+    console.log(progress.flatten()) //prints [5]
 ```
 
 This behaviour is amendable with ```opts``` argument of ```Progress``` factory function. The default factory preconfigures 
@@ -45,7 +45,7 @@ Run against all the values known to ```Progress``` instance. Comparison (flatten
 
 ``` compare -> any ```
 
-Run against last two values in **reversed** orde, defaults to 'None', or ['difference'](http://ramdajs.com/docs/#difference) if created using the default factory; 
+Run against last two values in **reversed** order, defaults to 'None', or ['difference'](http://ramdajs.com/docs/#difference) if created using the default factory; 
 
 ``` differs -> boolean ```
  
@@ -58,14 +58,13 @@ Check 'demo' for alternative configuration examples.
 Handled by ['Rollup'](https://rollupjs.org/guide/en) and ['Runjs'](https://github.com/pawelgalazka/runjs). Run 
 
 
-Run ``` npx run build ``` or use the command defined under the ```build``` task in 'runfile.js'  
+Run ``` npx run build ``` or use the command defined under the ```build``` task in 'runfile.js';
 
 By default, Rollup will build umd and Commonjs compatible bundles, adjustment can be achieved by changing the contents of 'formats' array inside the rollup.config.js file;
 
 #### Test
  
 Run ``` npx run test ``` or use the command defined under the 'test' task in the 'runfile.js';
-
 
 #### Demo
 

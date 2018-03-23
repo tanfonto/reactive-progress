@@ -1,12 +1,12 @@
 const tester = require('./tester')
 const { spec, atLeast, andN } = require('./../src/funcy')
 
-tester.falsy(spec, '"spec" returns false when both "flatten" and "flatMap" are not functions', { flatten: 1, flatMap: 1 })
-tester.falsy(spec, '"spec" returns false when "flatten" is not a functions', { flatten: 1, flatMap: () => {} })
-tester.falsy(spec, '"spec" returns false when "flatMap" is not a function', { flatten: () => {}, flatMap: 1 })
-tester.falsy(spec, '"spec" returns false when "flatten" is missing', { flatMap: () => 1 })
-tester.falsy(spec, '"spec" returns false when "flatMap" is missing', { flatten: () => 1 })
-tester.truthy(spec, '"spec" returns true when "flatMap" and "flatten" are both functions', { flatten: () => {}, flatMap: () => {} })
+tester.falsy(spec, '"spec" returns false when both "flatten" and "fmap" are not functions', { flatten: 1, fmap: 1 })
+tester.falsy(spec, '"spec" returns false when "flatten" is not a functions', { flatten: 1, fmap: () => {} })
+tester.falsy(spec, '"spec" returns false when "fmap" is not a function', { flatten: () => {}, fmap: 1 })
+tester.falsy(spec, '"spec" returns false when "flatten" is missing', { fmap: () => 1 })
+tester.falsy(spec, '"spec" returns false when "fmap" is missing', { flatten: () => 1 })
+tester.truthy(spec, '"spec" returns true when "fmap" and "flatten" are both functions', { flatten: () => {}, fmap: () => {} })
 
 tester.falsy(atLeast, '"atLeast" returns false if called with positive integer only', 1)
 tester.falsy(atLeast, '"atLeast" returns true if array length is lower than integer provided', 2, [42])

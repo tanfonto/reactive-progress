@@ -2,7 +2,7 @@ const { propOr, defaultTo, props, pickBy, keys, pipe, length, equals, lte, ident
 const { isFunction, curryRight } = require('ramda-adjunct')
 const { argv } = require('yargs')
 
-const spec = pipe(defaultTo({}), props(['flatMap', 'flatten']), pickBy(isFunction), keys, length, equals(identity(2)))
+const spec = pipe(defaultTo({}), props(['fmap', 'flatten']), pickBy(isFunction), keys, length, equals(identity(2)))
 const atLeast = (n, arr) => lte(identity(defaultTo(0, n)), length(defaultTo([], arr)))
 const andN = (...args) => reduce((p, c) => and(p, c), true, args)
 const argvOr = curryRight(propOr)(argv)

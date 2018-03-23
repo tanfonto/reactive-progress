@@ -41,7 +41,7 @@ function Progress(opts, ...state) {
         log: log,
         peek: log,
         map: map,
-        flatMap: chain,
+        fmap: chain,
         chain: chain,
         join: join,
         flatten: join,

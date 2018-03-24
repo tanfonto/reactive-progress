@@ -56,19 +56,19 @@ Expected functions are:
 
 ``` valueSafe -> boolean ```
 Run against all the values known to ```Progress``` instance. Comparison (flatten / join) will return 'None' if any value evaluates to false. Defaults to ['F'](http://ramdajs.com/docs/#F).
-```Array``` factory uses ['isArray'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isArray) and ```value``` factory defaults to ['isNotNil'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#isNotNil)
+```Array``` factory uses ['isArray'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isArray) and ```value``` factory defaults to ['isNotNil'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isNotNil).
 
 ``` compare -> any ```
-Run against last two values in **reversed** order, defaults to 'None', ```Array``` factory uses ['difference'](http://ramdajs.com/docs/#difference) and ```value``` factory defaults to negated ['equals'](http://ramdajs.com/docs/#equals)
+Run against last two values in **reversed** order, defaults to 'None', ```Array``` factory uses ['difference'](http://ramdajs.com/docs/#difference) and ```value``` factory defaults to negated ['equals'](http://ramdajs.com/docs/#equals).
 
 ``` differs -> boolean ```
-Run against comparison result to determine whether it should be considered a match, 'None' is returned in other case. Defaults to false; ```Array``` factory uses ['isNotEmpty'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isNotEmpty) and ```value``` factory defaults to ['isNotNil'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isNotNil);
+Run against comparison result to determine whether it should be considered a match, 'None' is returned in other case. Defaults to false. ```Array``` factory uses ['isNotEmpty'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isNotEmpty) and ```value``` factory defaults to ['isNotNil'](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.isNotNil).
 
 Check 'demo' for alternative configuration examples.
 
 #### Build
 
-Handled by ['Rollup'](https://rollupjs.org/guide/en) and ['Runjs'](https://github.com/pawelgalazka/runjs) 
+Powered by ['Rollup'](https://rollupjs.org/guide/en) and ['Runjs'](https://github.com/pawelgalazka/runjs) 
 
 
 Run ``` npx run build ``` or use the command defined under the ```build``` task in 'runfile.js'.

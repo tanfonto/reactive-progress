@@ -1,5 +1,5 @@
 const { any, equals, identity } = require('ramda')
-const options = require('./../../src/options')
+const { opts } = require('./../../src/factory.default')
 const done = any(equals(identity('status4')))
 
-module.exports = { config: options, done }
+module.exports = { config: opts, done }

@@ -10,7 +10,7 @@
     "monad",
     "websockets"
   ],
-  "main": "dist/mprogress.umd.js",
+  "main": "index.js",
   "author": "Whapky whapky@tuta.io",
   "license": "MIT",
   "repository": {
@@ -30,7 +30,7 @@
     "test": "nyc --reporter=text --reporter=html tape test/*.test.js",
     "prepublish": "npm install && npx run build"
   },
-  "source": "src/main.js",
+  "source": "index.js",
   "dependencies": {
     "glob": "^7.1.2",
     "ramda": "^0.25.0",

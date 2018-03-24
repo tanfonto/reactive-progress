@@ -1,1 +1,4 @@
-module.exports = require('./src/main')
+module.exports = {
+  array: require('./src/factory.array'),
+  eq: require('./src/factory.eq')
+}

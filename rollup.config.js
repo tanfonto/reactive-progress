@@ -27,7 +27,7 @@ const produceConfig = ({ format, suffix }) => {
   )
 
   return {
-    input: 'src/main.js',
+    input: 'index.js',
     output: {
       format: [ format ],
       file: `dist/mprogress.${format}${defaultTo('', suffix)}.js`,

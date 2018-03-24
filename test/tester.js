@@ -13,7 +13,7 @@ function test(underTest, description, expectation, ...args) {
 
 const predicatify = val => curry(test)(__, __, val)
 
-test.falsy = predicatify(false)
+test.falsy = predicatify(false) 
 test.truthy = predicatify(true)
 
 module.exports = test

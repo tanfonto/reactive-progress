@@ -15,19 +15,18 @@ const produceConfig = ({ format, suffix }) => {
     }),
     nodeResolve({
       module: true,
-      jsnext: true,
       main: true
     }),
     commonjs({
-      include: [ 'src/**', 'node_modules/**' ],
-      exclude: ['src/**/*.test.js', 'src/tester.js'],
+      include: [ './index.js', 'src/**/*.js', 'node_modules/**' ],
+      exclude: ['src/test/**/*.js'],
       sourceMap: false
     })],  
     [...(suffix ? [uglify()] : [])]
   )
 
   return {
-    input: 'index.js',
+    input: './index.js',
     output: {
       format: [ format ],
       file: `dist/mprogress.${format}${defaultTo('', suffix)}.js`,

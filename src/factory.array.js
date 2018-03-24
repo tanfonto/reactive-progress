@@ -8,4 +8,4 @@ const of = (...args) => {
     return Progress(clone(opts), ...args)   
 }
 
-module.exports = { of, opts }
+module.exports = { of, opts }   

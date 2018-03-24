@@ -4,7 +4,7 @@ A tiny library designed to simplify common progress tracking tasks (i.e. worker-
 
 #### Installation:
 ```sh
-npm install -S monadic-progress
+npm i -s monadic-progress
 ```
 
 #### Example usage:
@@ -70,7 +70,6 @@ Check 'demo' for alternative configuration examples.
 
 Powered by ['Rollup'](https://rollupjs.org/guide/en) and ['Runjs'](https://github.com/pawelgalazka/runjs) 
 
-
 Run ``` npx run build ``` or use the command defined under the ```build``` task in 'runfile.js'.
 
 By default, Rollup will build umd, Commonjs and ES6 compatible bundles, adjustment can be achieved by changing the contents of 'formats' array inside the rollup.config.js file.
@@ -83,7 +82,7 @@ Run ``` npx run test ``` or use the command defined under the 'test' task in the
 
 Run ```npx run demo``` for an example of Progress run against a fake http server with ```array``` factory. Accepts two arguments ```--method=[pull|push]``` (defaults to 'push') and ```--type=[default|int-equals|int-subtract]``` (surprisingly, defaults to ```default```). The ```type``` argument is used by the demo artifacts to build the ```require``` path for the subfolder where ```data``` and ```options``` files are kept.
 
-### API
+### API 
 
 To create an instance of ```Progress``` monad run:
 ```JavaScript
@@ -93,7 +92,7 @@ const progress = Progress.of([value])
 or 
 ```JavaScript
 const Progress = require('monadic-progress/src/Progress')
-const progress = Progress.({ options }, 42)
+const progress = Progress({ options }, 42)
 ```
 
 Functor-like mapping:

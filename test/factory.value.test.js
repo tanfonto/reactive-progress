@@ -1,4 +1,4 @@
-const { of, opts } = require('./../src/factory.eq')
+const { of, opts } = require('./../src/factory.value')
 const { spec } = require('./../src/funcy')
 const { None } = require('./../src/None')
 const tester = require('./tester')

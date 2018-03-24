@@ -23,12 +23,14 @@
     "doc": "demo"
   },
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "test"
   ],
   "scripts": {
     "build": "eslint && rollup -c",
     "test": "nyc --reporter=text --reporter=html tape test/*.test.js",
-    "prepublish": "npm install && npx run build"
+    "prepublishOnly": "npm install && npx run build"
   },
   "source": "index.js",
   "dependencies": {

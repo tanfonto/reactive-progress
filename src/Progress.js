@@ -19,8 +19,12 @@ function Progress(opts, ...state) {
         return isFunction(f) ? ensureLift(f) : Progress(opts, ...state)
     }  
     
+    function safeToJoin() {
+        return and(atLeast(2, values()), all(valueSafe)(values()))
+    }
+
     function join() {
-        if (not(and(atLeast(2, values()), all(valueSafe)(values())))) return None()
+        if (not(safeToJoin())) return None()
         const difference = compare(...reverse(takeLast(identity(2), values()))) 
         return when(complement(differs), None)(difference)
     }

@@ -13,7 +13,7 @@ function lint () {
 
 function bundle () {
     cli('rollup -c', options(this))
-}   
+}       
 
 function test() {
     run("nyc --reporter=text --reporter=html tape test/*.test.js")

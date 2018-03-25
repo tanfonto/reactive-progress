@@ -104,7 +104,7 @@ const progress = Progress.of([42]).map(x => [...x, 5])
 console.log(progress.join()) //prints [5] 
 ```
 
-Flat mapping ( aka bind / join ):
+Flat mapping ( aka bind / chain ):
 
 ```JavaScript
 const { array: Progress } = require('monadic-progress')

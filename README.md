@@ -138,4 +138,4 @@ console.log(entries) //prints [[42],[5]]
 
 #### The ```None``` type
 
-The default value returned by the ```chain / fmap``` method if no difference is found across subsequent calls or one of the last two values evaluates to unsafe.
+The default value returned by the ```join / flatten``` method if no difference is found across subsequent calls or one of the last two values evaluates to unsafe. Exposes static ```spec``` method for convenience.

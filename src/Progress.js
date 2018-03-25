@@ -7,6 +7,10 @@ function Progress(opts, ...state) {
     
     const { valueSafe = F, compare = always(None()), differs = always(false) } = opts
 
+    function safeToJoin() {
+        return and(atLeast(2, values()), all(valueSafe)(values()))
+    }
+
     function ensureLift(f) {
         return ifElse(spec, identity, val => Progress(opts, previous(), val))(f(previous()))
     }   
@@ -18,10 +22,6 @@ function Progress(opts, ...state) {
     function chain (f) {
         return isFunction(f) ? ensureLift(f) : Progress(opts, ...state)
     }  
-    
-    function safeToJoin() {
-        return and(atLeast(2, values()), all(valueSafe)(values()))
-    }
 
     function join() {
         if (not(safeToJoin())) return None()

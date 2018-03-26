@@ -29,7 +29,8 @@
   ],
   "scripts": {
     "build": "eslint && rollup -c",
-    "test": "nyc --reporter=text --reporter=html tape test/*.test.js",
+    "test": "nyc tape test/*.test.js && nyc report --reporter=text",
+    "cover": "nyc tape test/*.test.js && nyc report --reporter=text-lcov | coveralls",
     "prepublishOnly": "npm install && npx run build"
   },
   "source": "index.js",
@@ -44,6 +45,7 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
+    "coveralls": "^3.0.0",
     "eslint": "^4.19.0",
     "eslint-watch": "^3.1.3",
     "nyc": "^11.6.0",

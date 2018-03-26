@@ -4,7 +4,7 @@
 [![bitHound Overall Score](https://www.bithound.io/github/whapky/monadic-progress/badges/score.svg)](https://www.bithound.io/github/whapky/monadic-progress)
 ## **Monadic-progress**
 
-A tiny library designed to simplify common progress tracking tasks (i.e. worker-based background processing,busy waiting, interval-based http calls) and assure value safety by 'swallowing' unsafe values and automating comparisons across subsequent chain calls. Makes heavy use of [Ramda](http://ramdajs.com/) and [Ramda-adjunct](https://github.com/char0n/ramda-adjunct), written in a functional manner.
+A tiny library designed to simplify common progress tracking tasks (i.e. worker-based background processing, busy waiting, interval-based http calls) and assure value safety by 'swallowing' unsafe values and automating comparisons across subsequent chain calls. Makes heavy use of [Ramda](http://ramdajs.com/) and [Ramda-adjunct](https://github.com/char0n/ramda-adjunct), written in a functional manner.
 
 #### Installation:
 ```sh

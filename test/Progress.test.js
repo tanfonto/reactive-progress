@@ -23,14 +23,6 @@ test('"Progress" satisfies monad axioms', t => {
     t.end()
 })    
 
-test('"Progress" satisfies functor axioms (values safe according to the difference method configured)', t => {
-    const functor = of
-    
-    axioms.functor(functor, [42], x => [...x, 2], x => [x], t.deepEqual)
-    
-    t.end()
-})
-
 const configTest = (t, opts) => {
     const progress = Progress({ opts }, [3]).map(() => [3, 4]).map(() => [4, 5])
     const value = progress.join() 

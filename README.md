@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/whapky/monadic-progress.svg?branch=master)](https://travis-ci.org/whapky/monadic-progress)
 ## **Monadic-progress**
 
 A tiny library designed to simplify common progress tracking tasks (i.e. worker-based background processing, http polling) and assure value safety by 'swallowing' unsafe values and automating comparisons across subsequent chain calls. Makes heavy use of [Ramda](http://ramdajs.com/) and [Ramda-adjunct](https://github.com/char0n/ramda-adjunct), written in a (mostly) functional manner.

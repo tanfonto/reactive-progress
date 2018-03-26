@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+ - "node"
+jobs:
+  include:
+    - stage: lint
+      script: eslint **/*.js
+    - stage: test
+      script: nyc --reporter=text --reporter=html tape test/*.test.js
+    - stage: bundle
+      script: rollup -c
+stages:
+  - lint
+  - test
+  - bundle
+cache:
+  directories:
+    - "node_modules"
